@@ -8,4 +8,5 @@
 .country-visited{
     border: 2px solid aqua;
     border-radius: 10px;
+    background-color: rgb(122, 93, 93);
 }

@@ -12,6 +12,8 @@ const Countries = ({countriesPromise}) => {
     const [visitedCountry, setVisitedCountry] = useState([])
     const handleVisitedCpuntry = (country)=>{
         console.log('visited country btn clicked', country)
+        const newArrays = [...visitedCountry, country];
+        setVisitedCountry(newArrays)
     }
 
    const countriesData = use(countriesPromise)
@@ -21,6 +23,12 @@ const Countries = ({countriesPromise}) => {
         <div>
             <h1>I'm connectedt mister : {countries.length}</h1>
             <h2>Total Visited Country : {visitedCountry.length} </h2>
+
+              {
+                visitedCountry.map(visited =>  <li key={visited.cca3.cca3}>{visited.name.common}</li>)
+              }
+
+
             <div className='countries'>
                 {
                 countries.map(country => <Country handleVisitedCpuntry={handleVisitedCpuntry} key={country.cca3.cca3} country = {country}></Country>)
