@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './country.css'
 
-const Country = ({country}) => {
+const Country = ({country, handleVisitedCpuntry}) => {
+
+
+    console.log(handleVisitedCpuntry)
+
+
     const [visited, setVisited] = useState(false)
     const handleBtn = ()=>{
         // 1. first system
@@ -20,6 +25,7 @@ const Country = ({country}) => {
     }
     // console.log(country)
     return (
+        // jdi ami class e condtion use korte cai tahole
         <div className={`country ${visited && 'country-visited'}`}>
             <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
             <h2>Name : {country.name.common} </h2>
