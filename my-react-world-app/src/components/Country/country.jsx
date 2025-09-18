@@ -4,7 +4,7 @@ import './country.css'
 const Country = ({country, handleVisitedCpuntry}) => {
 
 
-    console.log(handleVisitedCpuntry)
+    // console.log(handleVisitedCpuntry)
 
 
     const [visited, setVisited] = useState(false)
@@ -21,7 +21,10 @@ const Country = ({country, handleVisitedCpuntry}) => {
             // setVisited(visited ? false : true)
 
             // 3. thired system
-            setVisited(!visited)
+            setVisited(!visited);
+
+            // visited country dekhar jonno function
+            handleVisitedCpuntry(country);
     }
     // console.log(country)
     return (
