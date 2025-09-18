@@ -10,10 +10,20 @@ const Countries = ({countriesPromise}) => {
     // ami koy ta country te visit korsi seta korar jonno state:
      
     const [visitedCountry, setVisitedCountry] = useState([])
+    const [visitedFlags, setVisitedFlags] = useState([])
+
+
+
+
     const handleVisitedCpuntry = (country)=>{
         console.log('visited country btn clicked', country)
         const newArrays = [...visitedCountry, country];
         setVisitedCountry(newArrays)
+    }
+
+    const handleFlags = (flags)=>{
+        const newFlags = [...visitedFlags, flags];
+        setVisitedFlags(newFlags)
     }
 
    const countriesData = use(countriesPromise)
@@ -24,14 +34,22 @@ const Countries = ({countriesPromise}) => {
             <h1>I'm connectedt mister : {countries.length}</h1>
             <h2>Total Visited Country : {visitedCountry.length} </h2>
 
+            <h3>New Visited Flags : {visitedFlags.length}</h3>
+
               {
                 visitedCountry.map(visited =>  <li key={visited.cca3.cca3}>{visited.name.common}</li>)
               }
 
+              <div className='visited-flags'>
+                {
+                    visitedFlags.map((flag, index) => <img key={index}  src={flag}></img>)
+                }
+              </div>
+
 
             <div className='countries'>
                 {
-                countries.map(country => <Country handleVisitedCpuntry={handleVisitedCpuntry} key={country.cca3.cca3} country = {country}></Country>)
+                countries.map(country => <Country handleVisitedCpuntry={handleVisitedCpuntry} handleFlags={handleFlags} key={country.cca3.cca3} country = {country} ></Country>)
             }
             </div>
 
